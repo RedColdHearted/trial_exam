@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+</head>
+
+<body>
+    <div>
+        <h1>Создание заявки</h1>
+        <form action="create-repair-request/" method="post">
+            <div>
+                <label for=""></label>
+                <input type="text" id="type" name="type">
+            </div>
+            <div>
+                <label for=""></label>
+                <input type="text" id="description" name="description">
+            </div>
+            <div>
+                <label for=""></label>
+                <input type="text" id="client_name" name="client_name">
+            </div>
+            <div>
+                <label for=""></label>
+                <input type="text" id="client_phone" name="client_phone">
+            </div>
+            <div>
+                <label for="status"></label>
+                <select id="status" name="status">
+                <option value="Pending">Получен</option>
+                <option value="In Progres">В прогрессе</option>
+                <option value="Done">Готов</option>
+            </select>
+            </div>
+            <div>
+                <label for=""></label>
+                <input type="text" id="repairman" name="repairman">
+            </div>
+
+            <input type="submit">
+        </form>
+    </div>
+    <div>
+        <h1>
+            Поиск заявки по номеру
+        </h1>
+        <form action="" method="post">
+            <label for="repair_request_search">Введите номер заявки</label>
+            <input id="repair_request_search" type="number">
+        </form>
+    </div>
+
+    <h1>Заявки</h1>
+    {% for object in objects %}
+    <div>
+        <p>
+            номер заявки {{object.id}}
+        </p>
+        <span>
+      {{ object.created}}
+      {{object.type}}
+      {{object.description}}
+      {{object.client_name}}
+      {{object.client_phone}}
+      {{object.status}}
+      {{object.repairman}}
+      </span>
+        <a href="#">редактировать заявку</a>
+        <a href="#">удалить заявку</a>
+    </div>
+    {% endfor %}
+
+    <script>
+        let message = "{{message}}";
+        if (message) {
+            alert(message)
+        }
+    </script>
+</body>
+
+</html>

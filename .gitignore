@@ -1,0 +1,7 @@
+#python virual env dirs
+venv
+.venv
+
+
+#python cache dirs
+__pycache__/*
